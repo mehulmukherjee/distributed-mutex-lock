@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+package psu_dml;
+
+service PSU_DML {
+	rpc requestCS (CSRequest) returns (CSReply) {}
+}
+
+message CSRequest {
+	string host = 1;
+	int32 seqno = 2;
+	int32 lockno = 3;
+}
+
+message CSReply {
+	string host = 1;
+	string msg = 2;
+}
